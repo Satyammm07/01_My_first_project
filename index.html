@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sattu | Home</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth; /* smooth scroll for anchor links */
+    }
+
+    body {
+      background-image: linear-gradient(180deg, beige, pink);
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      transition: background 0.3s ease-in-out;
+    }
+
+    /* Navbar */
+    .navbar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 40px;
+      background-color: aqua;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .navlinks {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .navlinks a {
+      text-decoration: none;
+      color: black;
+      font-size: 15px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .navlinks a:hover {
+      color: #6b1b1b;
+    }
+
+    .nav {
+      width: 80px;
+      height: 35px;
+      border-radius: 8px;
+      border: none;
+      background: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .nav:hover {
+      background: #ddd;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: black;
+      font-weight: 600;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 10%;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Home Section */
+    .home {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .home-text {
+      flex: 1 1 450px;
+      max-width: 600px;
+    }
+
+    .home-text h1 {
+      font-size: 3rem;
+      color: #4b2c2c;
+      margin-bottom: 20px;
+    }
+
+    .home-text p {
+      font-family: cursive;
+      font-size: 1.4rem;
+      background-color: bisque;
+      padding: 20px;
+      border-radius: 12px;
+      line-height: 1.6;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .home-image {
+      flex: 1 1 400px;
+      text-align: center;
+    }
+
+    .home-image img {
+      width: 90%;
+      max-width: 480px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      transition: transform 0.4s ease;
+    }
+
+    .home-image img:hover {
+      transform: scale(1.03);
+    }
+
+    /* About Section */
+    .about-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 1000px;
+      margin: auto;
+      overflow: hidden;
+      padding: 40px;
+      flex-wrap: wrap;
+    }
+
+    .about-text {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .about-text h1 {
+      font-size: 2.5rem;
+      color: #222;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    .about-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .about-image img {
+      width: 90%;
+      border-radius: 20px;
+    }
+
+    /* Services Section */
+    .services, .contact {
+      max-width: 1000px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .services h1, .contact h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #4b2c2c;
+      margin-bottom: 30px;
+    }
+
+    .services pre, .contact pre {
+      font-size: 1.2rem;
+      font-family: cursive;
+      white-space: pre-wrap;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+      .home, .about-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .home-text h1, .about-text h1 {
+        font-size: 2rem;
+      }
+
+      .home-text p, .about-text p {
+        font-size: 1rem;
+      }
+
+      .home-image img, .about-image img {
+        width: 100%;
+        max-width: 380px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#"><img src="logo.png" alt="Logo" width="60px" height="60px"></a>
+    <ul class="navlinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <button class="nav"><a href="sign.html">Sign In</a></button>
+      <button class="nav"><a href="login.html">Login</a></button>
+    </ul>
+  </nav>
+
+  <!-- HOME SECTION -->
+  <section class="home" id="home">
+    <div class="home-text">
+      <h1>Welcome to Sattu Wine & Beer</h1>
+      <p>
+        “Your local stop for fine wines and refreshing beers.”<br><br>
+        “Discover great taste in every bottle.”<br><br>
+        “From local brews to world-class wines, we've got something for every occasion.”
+      </p>
+    </div>
+    <div class="home-image">
+      <img src="ChatGPT Image Nov 5, 2025, 11_16_19 AM.png" alt="Shop Image">
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="about-section">
+      <div class="about-text">
+        <h1>About Us</h1>
+        <p>
+Welcome to <b>Sattu Wine & Beer Shop</b> — where good taste meets great times!  
+Founded with a passion for quality and a love for fine beverages, we’re proud to be your trusted neighborhood destination for wines, beers, and premium spirits.  
+
+At Sattu Wine & Beer Shop, we believe every occasion deserves the right drink — whether it’s a chilled beer with friends, a bottle of wine for a special dinner, or a gift that leaves a lasting impression.  
+
+Our collection features top local and international brands, handpicked to offer something for every mood and moment.  
+Come visit us and experience why our customers call us their go-to spot for the perfect pour.  
+
+<b>Cheers,  
+The Sattu Wine & Beer Shop Team</b>
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="photocopy.jpg" alt="Owner Photo">
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <div class="services">
+      <h1>🍾 Our Services</h1>
+      <pre>
+At <b>Sattu Wine & Beer Shop</b>, we’re all about quality, variety, and great service.  
+
+🥂 <b>1. Wide Selection of Drinks</b>  
+We stock a huge range of wines, beers, and spirits — from local favorites to international brands.  
+
+🍷 <b>2. Expert Recommendations</b>  
+Our friendly staff can help you choose the perfect drink for your taste or occasion.  
+
+🍺 <b>3. Chilled & Fresh Beers</b>  
+All our beers are stored at perfect temperatures, ensuring freshness every time.  
+
+🎁 <b>4. Gift Packs & Party Orders</b>  
+Customized gift packs and bulk orders for parties, weddings, and festivals.  
+
+🚚 <b>5. Home Delivery</b>  
+Fast, reliable home delivery (as per local laws).  
+
+💬 <b>6. Customer Support</b>  
+We’re always ready to help with brand info, stock availability, or event suggestions.
+      </pre>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="contact">
+      <h1>📞 Contact Us</h1>
+      <pre>
+We’d love to hear from you!
+
+📍 <b>Address:</b>  
+Near Traffic Light, Gurgaon, Sector 21, Metro Pillar 54  
+Sattu Wine & Beer Shop, Modi Marg, Near Vishal Mall, Gurgaon, Haryana 110078  
+
+📞 <b>Phone:</b> +91 8585855592  
+📧 <b>Email:</b> info@sattuwineandbeer.com  
+
+🕒 <b>Opening Hours:</b>  
+Monday – Sunday: 24/7  
+
+🌐 <b>Follow Us:</b>  
+Instagram: @sattuwineandbeer  
+Facebook: facebook.com/sattuwineandbeer
+      </pre>
+    </div>
+  </section>
+
+  <!-- JS for scroll animation -->
+  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
